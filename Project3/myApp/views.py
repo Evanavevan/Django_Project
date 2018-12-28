@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Students
 
 # Create your views here.
+
+
 def index(request):
     return render(request, 'myApp/index.html')
 

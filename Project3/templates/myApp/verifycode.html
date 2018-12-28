@@ -6,7 +6,7 @@
 </head>
 <body>
     <form action="/verifycodecheck/" method="post" >
-        {#防止CSRF#}
+        {# 防止CSRF #}
         {% csrf_token %}
         <input type="text" name="code"/>
         <img src="/verifycode/"/>

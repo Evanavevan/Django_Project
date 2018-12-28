@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+</head>
+<body>
+    <form action="/verifycodecheck/" method="post" >
+        {#防止CSRF#}
+        {% csrf_token %}
+        <input type="text" name="code"/>
+        <img src="/verifycode/"/>
+        <h3>
+            <input type="submit" value="登录">
+        </h3>
+    </form>
+</body>
+</html>

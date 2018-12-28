@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+</head>
+<body>
+    <h1>学生信息列表</h1>
+    <a href="{% url 'app:return' 1%}">返回</a>
+    <ul>
+         {%for student in students%}
+        <li>
+            {{student.sname}}--{{student.sage}}--{{student.sintroduction}}
+        </li>
+        {%endfor%}
+    </ul>
+</body>
+</html>

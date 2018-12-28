@@ -1,0 +1,51 @@
+{% extends 'myApp/base.html'%}
+{% load static from staticfiles%}
+
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'mine/css/register.css' %}"/>
+
+<script type="text/javascript" charset="utf-8" src="{% static 'mine/js/register.js' %}"></script>
+
+{% endblock linkscript %}
+
+{% block base %}
+<div id="register">
+    <h3 id="header">
+        <a href="/mine/"><span>&laquo;</span></a>
+        <b>注册</b>
+    </h3>
+
+    <form class="form-horizontal" action="/register/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group-addon"><span>账号：</span></div>
+        <input class="form-control" id="account" type="text" placeholder="账号长度为6~12个字符" aria-describedby="basic-addonl" name="userAccount"/>
+        <span id="accounter" class="error">账号格式输入错误</span>
+        <span id="checker" class="error">账号已被占用，请重新输入</span>
+
+        <div class="input-group-addon"><span>密码：</span></div>
+        <input id="passwd" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addonl" name="userPasswd"/>
+        <span id="passer" class="error">密码格式输入错误</span>
+
+        <div><span class="input-group-addon">验证密码：</span></div>
+        <input id="password" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addonl" name="userPassword"/>
+        <span id="passworder" class="error">两次密码输入不同</span>
+
+        <div class="input-group-addon"><span >昵称：</span></div>
+        <input required="required" type="text" class="form-control" aria-describedby="basic-addonl" name="userName"/>
+
+        <div class="input-group-addon"><span >手机号码：</span></div>
+        <input id="phone" required="required" type="text" class="form-control" placeholder="号码为11位有效数字" aria-describedby="basic-addonl" name="userPhonenumber"/>
+        <span id="phonenum" class="error">手机号码输入格式有误</span>
+
+        <div class="input-group-addon"><span >地址：</span></div>
+        <input required="required" type="text" class="form-control" aria-describedby="basic-addonl" name="userAddress"/>
+
+
+        <div class="input-group-addon"><span >头像：</span></div>
+        <input required="required" type="file" class="form-control" aria-describedby="basic-addonl" name="userImg"/>
+        <br/>
+
+        <div class="button"><input class="send" type="submit" value="注册" style="height:50px;width:100px;display:inline-block;font-size:30px"/></div>
+    </form>
+</div>
+{% endblock base %}

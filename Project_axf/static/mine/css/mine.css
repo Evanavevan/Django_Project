@@ -1,0 +1,192 @@
+footer .mine span {
+    background: url(/static/mine/img/mine_selected.png) no-repeat;
+    background-size: 1.25rem;
+}
+
+footer .mine dl dd {
+    color: yellow;
+}
+
+#mine {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: +10;
+    background: whitesmoke;
+    overflow: hidden;
+    padding-top: 11.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 11.5rem;
+    background: pink;
+    padding-top: 2rem;
+}
+
+.fixed > a > span {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    float: left;
+    margin: 0 1.0rem 0;
+    font-size: 3.5rem;
+    color: black;
+    background: white;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 4.8rem;
+}
+
+.fixed > span {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    float: left;
+    margin: 0 1.0rem 0;
+    font-size: 3.5rem;
+    color: black;
+    background: white;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 4.8rem;
+}
+
+.fixed > span > img {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    float: left;
+    margin: 0 0.1rem 0;
+    font-size: 3.5rem;
+    color: black;
+    background: white;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 4.8rem;
+}
+
+.fixed p {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.fixed p span:first-child {
+    color: black;
+}
+
+.fixed p span:last-child {
+    color: red;
+    display: inline-block;
+    text-indent: 1.0rem;
+}
+
+#register {
+    position: absolute;
+    right: 1.0rem;
+    top: 5rem;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.fixed p:last-child {
+    background: #f0e000;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    margin-bottom: 0;
+    font-size: 1.0rem;
+    line-height: 1.0rem;
+    height: 2.5rem;
+}
+
+.fixed p:last-child span:last-child {
+    margin: 0.75rem;
+    color: white;
+}
+
+.fixed p:last-child span:first-child {
+    color: red;
+}
+
+
+
+
+.mine {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 1.5rem;
+}
+
+.mine p {
+    line-height: 3.0rem;
+    padding: 0 0.3rem;
+    background: white;
+    border-bottom: 0.04rem solid lightyellow;
+}
+
+.mine p span {
+    color: grey;
+    font-size: 1.2rem;
+}
+
+.mine p a {
+    color: grey;
+    float: right;
+    font-size: 1.2rem;
+}
+
+.mine #navigate, .mine menu {
+    padding: 0.5rem 0 0.3rem;
+    margin-bottom: 1.0rem;
+    background: white;
+}
+
+.mine #navigate ul, .mine menu ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mine #navigate ul li dl, .mine menu ul li dl {
+    width: 5.8593750rem;
+    text-align: center;
+    font-size: 1.0rem;
+}
+
+.mine #navigate ul li dl dt, .mine menu ul li dl dt {
+    width: 100%;
+    line-height: 3rem;
+}
+
+.mine #navigate ul li dl dt span, .mine menu ul li dl dt span {
+    font-size: 1.3rem;
+}
+
+.mine menu ul {
+    flex-wrap: wrap;
+}
+
+.mine menu ul li {
+    width: 25%;
+}
+
+.mine menu ul li:last-child {
+    width: 100%;
+}
+
+.mine menu ul li:last-child dl {
+    width: 25%;
+}
+
+.mine .quit > a {
+    line-height: 2.0rem;
+    text-align: center;
+    width: 100%;
+    display: block;
+    float: none;
+}

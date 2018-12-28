@@ -1,0 +1,237 @@
+footer .home span {
+    background: url(/static/home/img/home_selected.png) no-repeat;
+    background-size: 1.25rem;
+}
+
+
+.home dl dd {
+    color: yellow;  /* 原来为orange*/
+}
+
+#home {
+    padding: 3.5rem 0;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 3.5rem;
+    position: fixed;
+}
+
+/*轮播样式*/
+#topSwiper {
+    height: 3.95 rem;    /* 3.95rem */
+    width: 10 rem;    /* 10rem */
+    overflow: hidden;
+}
+
+#topSwiper div a {
+    display: inline-block;
+    height: 3.95 rem;
+    width: 10 rem;
+}
+
+#topSwiper img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*导航块*/
+.topMenu {
+    padding-bottom: 0.26rem;
+}
+
+.topMenu nav {
+    margin: 0.35rem 0 0.26rem;
+    background: white;
+}
+
+.topMenu nav ul {
+    display: flex;
+}
+
+.topMenu nav li {
+    width: 5.859375rem;
+    text-align: center;
+    font-size: 0.82rem;
+}
+
+.topMenu nav li img {
+    width: 5.859375rem;
+}
+
+
+/*必购*/
+#swiperMenu {
+    width: 100%;
+}
+
+#swiperMenu li{
+  width:3.333333rem
+}
+
+#swiperMenu img {
+    width: 100%;
+}
+
+
+
+/*商店*/
+.CVS {
+    background: white;
+}
+
+.CVS h2 img {
+    width: 100%;
+}
+
+.CVS fieldset {
+    border: none;
+    padding: 0;
+}
+
+.CVS fieldset > a {
+    display: inline-block;
+    width: 49%;
+}
+
+.CVS fieldset img {
+    width: 100%;
+}
+
+.CVS ul {
+    display: flex;
+}
+
+.CVS ul li {
+    width: 5.859375rem;
+    text-align: center;
+    font-size: 0.82rem;
+}
+
+.CVS ul li img {
+    width: 5.859375rem; /*2.5rem*/
+}
+
+
+.CVS ol {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.CVS ol li {
+    list-style: none;
+    width: 11.71875rem; /*5rem*/
+}
+
+.CVS > ol a {
+    display: block;
+}
+
+.CVS ol a img {
+    width: 100%;
+}
+
+
+/*主要信息*/
+.mainInfo {
+    background-color: white;
+}
+
+.mainInfo section {
+    margin: 0.46875rem auto 0;  /*0.2rem*/
+    padding: 0.46875rem 0;
+    width: 21.5625rem;          /*9.2rem*/
+    list-style: none;
+}
+
+.mainInfo section h3 {
+    text-align: center;
+    height: 2.5rem;
+    position: relative;
+}
+
+.mainInfo section h3 a {
+    color: grey;
+    font-size: 0.8rem;
+    line-height: 0rem;
+    position: absolute;
+    right: 0.1rem;
+    display: block;
+}
+
+.mainInfo section h3 span {
+    background-color: yellow;
+    width: 2.0rem;      /* 0.6rem*/
+    height: 0.3rem;     /*0.1rem*/
+    position: absolute;
+    bottom: 0.25rem;
+    left: 9.78125rem;   /*4.3rem*/
+}
+
+.mainInfo section div a img {
+    width: 100%;
+}
+
+
+.mainInfo  section ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mainInfo section ul li {
+    width: 7.1875rem;
+    position: relative;
+}
+
+.mainInfo section ul li a {
+    font-size: 0.8rem;
+    color: red;
+    display: block;
+}
+
+.mainInfo section ul li a img {
+    width: 7.0rem;
+}
+
+.mainInfo section ul li a s {
+    color: grey;
+    font-size: 0.7rem;
+}
+
+.mainInfo .description {
+    font-size: 0.7rem;
+    color: black;
+    width: 90%;
+    display: block;
+    line-height: 1.2em;
+    height: 2.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.mainInfo > section > ul > li > button {
+    border: 1px solid lightgrey;
+    border-radius: 1111px;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    line-height: 0.0rem;
+    text-align: center;
+    color: orangered;
+    font-size: 1.0rem;
+    position: absolute;
+    right: 0.3rem;
+    bottom: 0.1rem;
+    background: white;
+}
+
+.mainInfo > section > ul > li > button > span {
+    position: relative;
+    top: -0.05rem;
+    margin: auto;
+}

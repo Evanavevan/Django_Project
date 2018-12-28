@@ -1,0 +1,263 @@
+footer .market span {
+    background: url(/static/market/img/market_selected.png) no-repeat;
+    background-size: 1.25rem;
+}
+
+
+footer .market dl dd{
+    color: yellow;
+}
+
+
+#market {
+    padding: 3.5rem 0;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+
+/*********左面的的导航*********************/
+aside {
+    width: 5.85rem;
+    float: left;
+    position: relative;
+    background: #fafafa;
+    overflow: auto;
+    height: 100%
+}
+
+aside ul {
+    background: #fafafa;
+}
+
+aside ul li {
+    list-style: none;
+    text-align: center;
+    border-bottom: 0.04rem solid #e0e0e0;
+    line-height: 3.336rem;
+    width: 5.0rem;
+    position: relative;
+    z-index: +1;
+}
+
+aside ul li a {
+    display: block;
+    font-size: 1.0rem;
+    color: grey;
+    z-index: +1;
+}
+
+.yellowSlide {
+    background: yellow;
+    width: 0.3rem;
+    height: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 0.918rem;
+    display: block;
+}
+
+div > section {
+    background-color: #fafafa;
+    width: 17.58rem;
+    float: right;
+    position: relative;
+    height: 100%;
+    overflow: auto;
+    padding: 3.2rem 0 0;
+}
+
+/**********以下******全部分类****综合安排***************/
+nav {
+    top: 3.5rem;
+    right: 0;
+    position: fixed;
+    z-index: +1;
+    background: white;
+    border-bottom: 0.04rem solid #e0e0e0;
+}
+
+nav ul {
+    display: flex;
+    background: #fafafa;
+    height: 3.0rem;
+    padding-top: 1.0rem;
+}
+
+nav ul li {
+    text-align: center;
+    width: 8.79rem;
+    line-height: 1.2rem;
+    font-size: 1.0rem;
+    border-right: 0.04rem solid #e0e0e0;
+    height: 2.0rem;
+}
+
+nav ul li:last-child {
+    border: none;
+}
+
+/************分类按钮   全部分类   综合安排****/
+nav ul li > span {
+    width: 100%;
+    height: 1.0rem;
+    display: block;
+}
+
+
+/*商品列表*/
+
+section menu {
+    height: 100%;
+    position: relative;
+    overflow: auto;
+}
+
+section menu ul {
+    position: relative;
+}
+
+section menu ul li {
+    background: white;
+    border-bottom: 0.04rem solid #e0e0e0;
+    position: relative;
+}
+
+section menu ul li a {
+    display: block;
+    height: 6.5rem;
+}
+
+section menu ul li a img {
+    display: block;
+    width: 6.5rem;
+    float: left;
+}
+
+/************************ 商品详细信息 ********************/
+.shoppingInfo {
+    width: 11.079rem;
+    float: right;
+    font-size: 0.7rem;
+}
+
+.shoppingInfo h6 {
+    margin: 0.1rem 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1.0rem;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/****细节标签*********/
+.detailTag {
+    margin: 0.2rem 0;
+}
+
+.detailTag span {
+    border: 0.05rem solid red;
+    border-radius: 0.15rem;
+    padding: 0 0.1rem;
+    color: white;
+    background: red;
+    margin-right: 0.3rem;
+}
+
+.detailTag span:first-child {
+    background: white;
+    color: red;
+}
+
+/******单位**********/
+.unit {
+    color: grey;
+    position: absolute;
+    bottom: 2rem;
+}
+
+.price {
+    position: absolute;
+    bottom: 0.5rem;
+    font-weight: 500;
+    margin: 0.4rem 0;
+}
+
+.price > span {
+    padding: 0 0.35rem 0 0;
+    color: red;
+}
+
+.price > s {
+    color: grey;
+}
+
+/**添加到购物车****/
+li > section {
+    position: absolute;
+    right: 0.4rem;
+    bottom: 1.0rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+}
+
+section > button {
+    background: white;
+    border: 1px solid orange;
+    border-radius: 1111px;
+    color: red;
+    display: inline-block;
+    text-align: center;
+    line-height: 0.0rem;
+    font-weight: 900;
+    width: 1.2rem;
+    height:1.2rem;
+}
+
+li > section > span {
+    display: inline-block;
+    width: 1.0rem;
+    text-align: center;
+    line-height: 1.0rem;
+    font-size: 1.0rem;
+}
+
+.subShopping, .addShopping {
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+/************分类********************************/
+section menu > div {
+    position: fixed;
+    top: 6.5rem;
+    left: 5.85rem;
+    width: 17.579375rem;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: grey;
+    /*display: none;*/
+}
+
+section menu > div > div {
+    background: white;
+    padding-bottom: 0.5rem;
+}
+
+section menu > div > div > a > span {
+    border: 0.1rem solid #e0e0e0;
+    padding: 0.3rem 0.3rem;
+    margin-left: 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 1.0rem;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+
+
+

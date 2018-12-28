@@ -1,0 +1,41 @@
+{% extends 'myApp/base.html'%}
+{% load static from staticfiles%}
+
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'mine/css/login.css' %}"/>
+
+<script type="text/javascript" charset="utf-8" src="{% static 'mine/js/login.js' %}"></script>
+
+{% endblock linkscript %}
+
+{% block base %}
+<div id="login">
+    <h3 id="header">
+        <a href="/mine/"><span>&laquo;</span></a>
+        <b>登录</b>
+    </h3>
+
+    <div id="box">
+        <form action="/login/" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                账号：{{form.username}}
+            </div>
+            <span>{{error.username.0}}</span>
+
+            <div class="input-group">
+                密码：{{form.password}}
+                <br/>
+                {% if error.password.0 %}
+                <span>{{error.password.0}}</span>
+                {% endif %}
+            </div>
+            <br/>
+
+            <div class="button">
+                <input type="submit" value="登录" style="height:40px;width:60px;display:inline-block;font-size:20px"/>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock base %}

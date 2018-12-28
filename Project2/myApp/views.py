@@ -2,17 +2,20 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.http import HttpResponse
+from .models import Grades, Students
+
 
 def index(request):
     return HttpResponse('evan is a handsome and good man!')
 
 
-#GET属性演示案例
+# GET属性演示案例
 def get1(request):
     a = request.GET.get('a')
     b = request.GET.get('b')
     c = request.GET.get('c')
     return HttpResponse('a = ' + a + '\nb = ' + b + '\nc = ' + c)
+
 
 def get2(request):
     a = request.GET.getlist('a')
@@ -20,10 +23,10 @@ def get2(request):
     return HttpResponse('a = ' + a[0] + '\nb = ' + a[1] + '\nc = ' + c)
 
 
-from .models import Grades, Students
-#POST属性演示
+# POST属性演示
 def registerpage(requset):
     return render(requset, 'myApp/register.html')
+
 
 def register(request):
     name = request.POST.get('name')
@@ -53,7 +56,7 @@ def register(request):
     stu.save()
 
     studentList = Students.objects.all()
-    return render(request, 'myApp/students.html', {'students':studentList})
+    return render(request, 'myApp/students.html', {'students': studentList})
 #    return HttpResponse('Successful!')
 #    return redirect(registerpage)
 

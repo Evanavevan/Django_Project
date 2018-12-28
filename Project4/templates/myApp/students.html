@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+</head>
+<body>
+    <h1>学生信息列表</h1>
+    <table>
+        <tbody>
+            {%for student in students%}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{student.sname}}</td>
+                    <td>{{student.sage}}</td>
+                    <td>{{student.sintroduction}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    {# 分页 #}
+    {# bootstrap是一整套成熟经典的页面组件框架 #}
+    <link href="/static/myApp/css/bootstrap.css" rel="stylesheet">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="/studentpage/1/" aria-label="Previous">
+                    <span aria-hidden="true">首页</span>
+                </a>
+            </li>
+            {% for index in pageList %}
+                {# 所在页面的页码不能再点击 #}
+                {% if students.number == index %}
+                    <li class="page-item">
+                        <a class="page-link">{{index}}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="/studentpage/{{index}}/">{{index}}</a>
+                    </li>
+                {% endif %}
+            {%endfor%}
+            <li class="page-item">
+                <a href="/studentpage/21/" aria-label="Next" class="page-link">
+                    <span aria-hidden="true">尾页</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{# 进入以下的这个目录是为了反向解析#}
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    {# css文件 #}
+    <link rel="stylesheet" type="text/css" href="/static/myApp/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'myApp/css/style.css' %}"/>
+</head>
+<body>
+    <h1>Welcome To The Index Of Django!</h1>
+    {# 放置图片 #}
+    <img src="/static/myApp/image/菲姐美化版.jpg">
+    <img src="{% static 'myApp/image/菲姐美化版.jpg' %}">
+</body>
+</html>

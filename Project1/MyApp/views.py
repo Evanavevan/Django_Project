@@ -15,7 +15,7 @@ def detail(request, num):
 
 
 def grades(request):
-    # 去模板里取数据
+    # 去模板取数据
     gradeList = Grades.objects.all()
     # 将数据传递给模板，模板渲染页面，其后返回给浏览器
     return render(request, 'MyApp/grades.html', {'grades': gradeList})

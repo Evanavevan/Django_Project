@@ -11,5 +11,5 @@ urlpatterns = [
     url(r'^grades/(\d+)$', views.gradeStudents),
 
 
-    url(r'^addstudent/$', views.addstudent)
+    url(r'^addstudent/$', views.addStudent)
 ]

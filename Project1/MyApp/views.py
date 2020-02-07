@@ -34,7 +34,7 @@ def gradeStudents(request, num):
     return render(request, 'MyApp/students.html', {'students': studentsList})
 
 
-def addstudent(request):
+def addStudent(request):
     grade = Grades.objects.get(pk=2)
     stu = Students.createstudent('刘德华', True, 40, '我是华仔，你们说我帅不帅', grade)
     stu.save()

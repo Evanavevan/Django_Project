@@ -16,7 +16,7 @@ class GradeAdmin(admin.ModelAdmin):
     # 关联对象
     inlines = [StudentInfo]
     # 列表页属性
-    list_display = ['pk', 'gname', 'gdate', 'ggirlnum', 'gboynum', 'isDelete']  # 显示字段，类似于数据库的
+    list_display = ['pk', 'gname', 'gdate', 'ggirlnum', 'gboynum', 'isDelete']  # 显示字段，类似于数据库的list
     list_filter = ['gname']     # 过滤器
     search_fields = ['gname']   # 搜索栏
     list_per_page = 2   # 分页
@@ -45,8 +45,7 @@ class StudentAdmin(admin.ModelAdmin):
             return '否'
     # gender.short_description = '性别'
     # 列表页属性
-    list_display = ['pk', 'sname', gender, 'sage', 'sintroduction', 'sgrade', Delete]  # 显示字段，类似于数据库的
-    list
+    list_display = ['pk', 'sname', gender, 'sage', 'sintroduction', 'sgrade', Delete]  # 显示字段，类似于数据库的list
     list_filter = ['sname', 'sage', 'sgrade']     # 过滤器
     search_fields = ['sname', 'sage', 'sgrade']   # 搜索栏
     list_per_page = 4   # 分页

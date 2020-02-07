@@ -163,10 +163,14 @@ footer .mine dl dd {
     line-height: 3rem;
 }
 
-.mine #navigate ul li dl dt span, .mine menu ul li dl dt span {
+.mine #navigate ul li dl dt span:first-child, .mine menu ul li dl dt span {
     font-size: 1.3rem;
 }
 
+.mine #navigate ul li dl dt span:last-child {
+    font-size: 1.3rem;
+    color: red;
+}
 .mine menu ul {
     flex-wrap: wrap;
 }

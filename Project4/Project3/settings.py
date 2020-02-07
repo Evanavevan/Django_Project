@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'p!u9d65$#u%d5n1%%w&k3*n0(xdl950t3_e-+7px#**t1hmm$$'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -71,21 +69,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Project3.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'exercice1',
+        'NAME': 'exercice2',
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -105,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -119,23 +114,22 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-#静态文件目录
+# 静态文件目录
 STATIC_URL = '/static/'
-#普通文件所必须加上的路径
+# 普通文件所必须加上的路径
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-#上传文件目录
+# 上传文件目录
 MEDIA_ROOT = os.path.join(BASE_DIR, r'static\upfile')
 
-#富文本设置
+# 富文本设置
 TINYMCE_DEFAULT_CONFIG = {
-    'theme':'advanced',
-    'width':600,
-    'height':400
+    'theme': 'advanced',
+    'width': 600,
+    'height': 400
 }

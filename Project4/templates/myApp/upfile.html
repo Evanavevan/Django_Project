@@ -7,10 +7,10 @@
 <body>
     <form method="post" action="/savefile/" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="file"/>
+        <input type="file" name="file" required="required"/>
         <br/>
         <br/>
-        <input type="submit" name="上传"/>
+        <input type="submit" value="上传"/>
     </form>
 </body>
 </html>

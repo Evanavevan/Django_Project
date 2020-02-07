@@ -192,5 +192,27 @@ class Order(models.Model):
     @classmethod
     def createorder(cls, orderid, userid, receiver, phonenum, receiveaddress, money, progress):
         o = cls(orderid=orderid, userid=userid, receiver=receiver, phonenum=phonenum, receiveaddress=receiveaddress,
-                money=money,progress=progress)
+                money=money, progress=progress)
         return o
+
+
+class OrderProducts(models.Model):
+    products = models.ForeignKey(Cart)  # 关联的购物车
+    order = models.ForeignKey(Order)  # 关联的订单
+    product_num = models.IntegerField(default=1)  # 商品的个数
+
+    @classmethod
+    def create_order_product(cls, products, order, product_num):
+        op = cls(products=products, order=order, product_num=product_num)
+        return op
+
+
+class UserTicket(models.Model):
+    user = models.ForeignKey(User)
+    ticket = models.CharField(max_length=30, null=True)
+    out_time = models.DateTimeField()
+
+    @classmethod
+    def create_user_ticket(cls, user, ticket, out_time):
+        ut = cls(user=user, ticket=ticket, out_time=out_time)
+        return ut

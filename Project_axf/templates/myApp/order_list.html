@@ -1,0 +1,55 @@
+{% extends 'myApp/base.html' %}
+{% load static from staticfiles %}
+
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'order/css/orderlist.css' %}"/>
+
+<script type="text/javascript" charset="utf-8" src="{% static 'orderlist/js/orderlist.js' %}"></script>
+{% endblock linkscript %}
+
+
+{% block base %}
+<div id="orderlist">
+    <h3 id="header">
+        <a href="/mine/"><span>&laquo;</span></a>
+        <b>{{header}}</b>
+    </h3>
+    <div id="maininfo">
+        <!--订单信息展示-->
+        {% for order in orders %}
+        <div style="width: 100%; border: 1px solid blue;clear: both;"></div>
+        <p style="font-size: 16px; text-align: left;color: orangered">订单号：{{ order.orderid }}</p>
+        <div style="width: 100%; border: 1px solid blue;clear: both;"></div>
+        <li style="display: inline-block">
+            {% for orderProduct in order.orderproducts_set.all %}
+            <div>
+                <p style="font-size: 20px;float: left;width: 100%;">
+                    商品数量：{{ orderProduct.product_num }}<br/>
+                    商品名称：{{ orderProduct.products.productname }}<br/>
+                    {% if not order.progress %}
+                    商品价格：{{ orderProduct.products.productprice }}
+                    {% endif %}
+                </p>
+                <!--展示商品的名称-->
+                <img src="{{ orderProduct.products.productimg }}" alt="productimg">
+            </div>
+            <div style="width: 100%; border: 1px solid black;clear: both"></div>
+            <!--处理结束-->
+            {% endfor %}
+            <p style="height: 40px;width: 375.2px;font-size: 22px;background: gold;">
+                {% if not order.progress %}
+                <span style="padding-left: 5px;vertical-align: middle"><b>共计：</b></span><span style="color: red;vertical-align: middle"><b>￥{{order.money}}</b></span>
+                {% endif %}
+                {% if not order.progress %}
+                <a href="/mine/userPayOrder/{{order.orderid}}" style="height: 40px;width: 110px;background: red;color: white;float: right;text-align: center">立即付款</a>
+                {% else %}
+                <a href="#" style="height: 40px;width: 110px;background: red;color: white;float: right;text-align: center">确认收货</a>
+                {% endif %}
+            </p>
+
+        </li>
+        {% endfor %}
+        <!--订单处理结束-->
+    </div>
+</div>
+{% endblock base %}

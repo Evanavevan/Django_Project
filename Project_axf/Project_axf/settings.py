@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w_wpd2bby1ew82tegqzzlgt_9jyc*x7hss@wq4#rmsyl*ohfz*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -122,9 +122,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# debug=true时的配置
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+# debug=false时的配置
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # 配置上传文件的目录
 MEDIA_ROOT = os.path.join(BASE_DIR, r'static\media')

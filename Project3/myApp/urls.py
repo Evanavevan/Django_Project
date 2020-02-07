@@ -3,7 +3,7 @@ from django.conf.urls import url
 from . import views, verifycode
 
 urlpatterns = [
-    # url(r'^$', views.index),
+    url(r'^$', views.index),
     # 生成验证码
     url(r'^verifycode/$', verifycode.Verifycode),
 

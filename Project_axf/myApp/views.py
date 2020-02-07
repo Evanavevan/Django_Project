@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from .models import Wheel, Nav, Mustbuy, Shop, Show, FoodTypes, Products, User, Cart, Order
+from .models import Wheel, Nav, Mustbuy, Shop, Show, FoodTypes, Products, User, Cart, Order, OrderProducts, UserTicket
 import os
 import time
 import random
@@ -86,7 +86,7 @@ def market(request, categoryid, cid, sortid):
 
 
 # 购物车
-def shoppingcar(request):
+def shopping_car(request):
     token = request.session.get("token")
     cartslist = []
     user = None
@@ -112,7 +112,7 @@ def shoppingcar(request):
 
 
 # 修改购物车
-def changeshoppingcar(request, flag):
+def change_shopping_car(request, flag):
     # 判断用户是否登录
     token = request.session.get("token")
     if token == None:
@@ -141,7 +141,7 @@ def changeshoppingcar(request, flag):
                 c = carts.get(productid=productid)
                 # 修改数量和总价
                 c.productnum += 1
-                c.productprice = "%.2f" % (product.price*c.productnum)
+                c.productprice = "%.2f" % (product.price * c.productnum)
                 c.save()
             except Cart.DoesNotExist:
                 # 没有添加此商品直接增加一条订单
@@ -163,7 +163,7 @@ def changeshoppingcar(request, flag):
                 c = carts.get(productid=productid)
                 # 修改数量和总价
                 c.productnum -= 1
-                c.productprice = "%.2f" % (product.price*c.productnum)
+                c.productprice = "%.2f" % (product.price * c.productnum)
                 # 数量减为0删除订单
                 if c.productnum == 0:
                     c.delete()
@@ -250,11 +250,14 @@ def order(request):
         item.isDelete = True
         item.orderid = oid
         item.save()
+        op = OrderProducts.create_order_product(products=item, order=o, product_num=item.productnum)
+        op.save()
+
     return JsonResponse({"status": "success"})
 
 
 # 修改订单信息
-def changeinfo(request):
+def change_info(request):
     if request.method == "POST":
         count = 0
         trueFlag = 0
@@ -297,7 +300,16 @@ def mine(request):
         flag = 1
         username = request.session.get("username")
         user = User.objects.get(userName=username)
-        return render(request, 'myApp/mine.html', {'Title': '我的', "username": username, 'flag': flag, 'user': user})
+        wait_pay, payed = 0, 0
+        if user:
+            orders = Order.objects.filter(userid=user.userAccount)
+            for o in orders:
+                if o.progress:
+                    payed += 1
+                else:
+                    wait_pay += 1
+        return render(request, 'myApp/mine.html', {'Title': '我的', "username": username, 'flag': flag, 'user': user,
+                                                   'wait_pay': wait_pay, 'payed': payed})
     else:
         username = ''
         return render(request, 'myApp/mine.html', {'Title': '我的', "username": username, 'flag': flag})
@@ -353,7 +365,7 @@ def register(request):
 
         # 头像
         f = request.FILES["userImg"]
-        userImg = os.path.join(settings.MEDIA_ROOT, userAccount+'.png')
+        userImg = os.path.join(settings.MEDIA_ROOT, userAccount + '.png')
         with open(userImg, 'wb') as fp:
             for i in f.chunks():
                 fp.write(i)
@@ -384,7 +396,48 @@ def checkuserid(request):
 # 退出登录
 # from django.contrib.auth import logout
 def logout(request):
-    # 使用logout会显示超时
-    # logout(request)
-    request.session.clear()
-    return redirect('/mine/')
+    try:
+        # 使用logout会显示超时
+        # logout(request)
+        request.session.clear()
+        return redirect('/mine/')
+    except Exception as e:
+        print(e)
+
+
+# 待付款
+def order_wait_pay(request):
+    token = request.session.get("token")
+    user = User.objects.get(userToken=token)
+    if user and user.userAccount:
+        orders = Order.objects.filter(userid=user.userAccount, progress=0)
+        return render(request, 'myApp/order_list.html', {'Title': '待付款订单', 'orders': orders,
+                                                         'header': '待付款订单列表'})
+
+
+# 付款
+def user_pay_order(request, order_id):
+    try:
+        # 调用支付宝或者微信支付，支付成功后执行以下操作
+        Order.objects.filter(orderid=order_id).update(progress=1)
+        return redirect('/mine/orderWaitPay')
+    except Exception as e:
+        print(e)
+
+
+# 查看全部订单
+def check_all_order(request):
+    token = request.session.get("token")
+    user = User.objects.get(userToken=token)
+    if user and user.userAccount:
+        orders = Order.objects.filter(userid=user.userAccount)
+        return render(request, 'myApp/order_list.html', {'Title': '全部订单', 'orders': orders, 'header': '全部订单'})
+
+
+# 待收货
+def wait_receive_product(request):
+    token = request.session.get("token")
+    user = User.objects.get(userToken=token)
+    if user and user.userAccount:
+        orders = Order.objects.filter(userid=user.userAccount, progress=1)
+        return render(request, 'myApp/order_list.html', {'Title': '待收货列表', 'orders': orders, 'header': '待收货列表'})

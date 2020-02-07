@@ -6,16 +6,16 @@
 </head>
 <body>
     <form action="register/" method="post">
-        姓名：<input type="text" name="name" value=""/>
+        姓名：<input type="text" name="name" value="" required="required"/>
         <br/>
-        性别：<input type="radio" name="gender" value="1"/>男<input type="radio" name="gender" value="0"/>女
+        性别：<input type="radio" name="gender" value="1" required="required"/>男<input type="radio" name="gender" value="0" required="required"/>女
         <br/>
-        年龄：<input type="text" name="age" value=""/>
+        年龄：<input type="text" name="age" value="" required="required"/>
         <br/>
-        简介：<input type="text" name="introduction" value=""/>
+        简介：<input type="text" name="introduction" value="" required="required"/>
         <br/>
-        所属年级：<input type="radio" name="grade" value="1"/>大一<input type="radio" name="grade" value="2"/>大二
-        <input type="radio" name="grade" value="3"/>大三<input type="radio" name="grade" value="4"/>大四
+        所属年级：<input type="radio" name="grade" value="1" required="required"/>大一<input type="radio" name="grade" value="2" required="required"/>大二
+        <input type="radio" name="grade" value="3" required="required"/>大三<input type="radio" name="grade" value="4" required="required"/>大四
         <br/>
         <input type="submit" value="注册"/>
     </form>

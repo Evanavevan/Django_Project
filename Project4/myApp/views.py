@@ -7,6 +7,8 @@ from django.conf import settings
 from .models import Students
 from django.core.paginator import Paginator
 from .models import Text
+
+
 # Create your views here.
 
 
@@ -26,7 +28,7 @@ def savefile(request):
         filepath = os.path.join(settings.MEDIA_ROOT, f.name)
         # 读写文件
         with open(filepath, 'wb') as fp:
-            for info in f.chunks():     # 读取大文件用.chunks()分块读取
+            for info in f.chunks():  # 读取大文件用.chunks()分块读取
                 fp.write(info)
         return HttpResponse('文件上传成功！')
     else:
@@ -80,4 +82,4 @@ def saveedit(request):
     # 能存但显示不了
     tList = Text.objects.all()
     print(tList)
-    return render(request, 'myApp/showedit.html', {'text':tList})
+    return render(request, 'myApp/showedit.html', {'text': tList})

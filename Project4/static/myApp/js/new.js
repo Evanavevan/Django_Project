@@ -4,9 +4,9 @@ $(document).ready(function(){
             type: "get",
             url: "/studentsinfo/",
             dataType: "json",
-            success: function(data, status){
+            success: function(data){
                 console.log(data)
             }
         })
     }
-})
+});

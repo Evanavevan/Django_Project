@@ -54,14 +54,14 @@
     <!--种类汇总-->
     <section class="CVS">
         <h2>
-            <a href="/market/104749/0/0/">
+            <a href="/market/{{shop1.trackid}}/0/0/">
                 <img src="{{shop1.img}}" alt="{{shop1.name}}"/>
             </a>
         </h2>
 
         <fieldset>
             {% for s in shop2 %}
-                <a href="#">
+                <a href="/market/{{s.trackid}}/0/0/">
                     <img src="{{s.img}}" alt="{{s.name}}"/>
                 </a>
             {% endfor %}
@@ -70,7 +70,7 @@
         <ul>
             {% for s in shop3 %}
                 <li>
-                    <a href="#">
+                    <a href="/market/{{s.trackid}}/0/0/">
                         <img src="{{s.img}}"/>
                         <span>{{s.name}}</span>
                     </a>
@@ -96,12 +96,12 @@
             <section>
                 <h3>
                    {{info.name}}
-                    <a ui-sref="#">更多>></a>
+                    <a href="/market/{{info.categoryid}}/0/0">更多>></a>
                     <span></span>
                 </h3>
 
                 <div>
-                    <a href="#"><img src="{{info.img}}" alt="info.name" /></a>
+                    <a href="/market/{{info.categoryid}}/0/0"><img src="{{info.img}}" alt="{{info.name}}" /></a>
                 </div>
 
                 <ul>
@@ -112,7 +112,7 @@
                             <span>￥{{info.price1}}</span>
                             <s>￥{{info.marketprice1}}</s>
                         </a>
-                        <button><span>&#43;</span></button>
+                        <button ga="{{info.productid1}}" class="addShopping"><span>&#43;</span></button>
                     </li>
 
                     <li>
@@ -122,7 +122,7 @@
                             <span>￥{{info.price2}}</span>
                             <s>￥{{info.marketprice2}}</s>
                         </a>
-                        <button><span>&#43;</span></button>
+                        <button ga="{{info.productid2}}" class="addShopping"><span>&#43;</span></button>
                     </li>
 
                     <li>
@@ -132,7 +132,7 @@
                             <span>￥{{info.price3}}</span>
                             <s>￥{{info.marketprice3}}</s>
                         </a>
-                        <button><span>&#43;</span></button>
+                        <button ga="{{info.productid3}}" class="addShopping"><span>&#43;</span></button>
                     </li>
                 </ul>
             </section>

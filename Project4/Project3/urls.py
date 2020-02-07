@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    #namespace是为了网页反向解析
-#    url(r'^', include('myApp.urls')),
+    # namespace是为了网页反向解析
+    # url(r'^', include('myApp.urls')),
     url(r'^', include('myApp.urls', namespace='app')),
 ]

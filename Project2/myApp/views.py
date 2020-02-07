@@ -43,7 +43,7 @@ def register(request):
 
     stu.sname = name
     stu.sgender = gender
-    stu.sage =age
+    stu.sage = age
     stu.sintroduction = introduction
     if grade == '1':
         stu.sgrade = grade1
@@ -57,14 +57,15 @@ def register(request):
 
     studentList = Students.objects.all()
     return render(request, 'myApp/students.html', {'students': studentList})
+
+
 #    return HttpResponse('Successful!')
 #    return redirect(registerpage)
 
 
-
 def students(request):
     studentList = Students.objects.all()
-    return render(request, 'myApp/students.html', {'students':studentList})
+    return render(request, 'myApp/students.html', {'students': studentList})
 
 
 def return_(requset):
@@ -72,24 +73,29 @@ def return_(requset):
 
 
 from django.contrib.auth import logout
-#回话保存信息演示
+
+
+# 回话保存信息演示
 def mainpage(request):
     username = request.session.get('username', '游客')
-    return render(request, 'myApp/mainpage.html', {'username':username})
+    return render(request, 'myApp/mainpage.html', {'username': username})
+
 
 def login(request):
     return render(request, 'myApp/login.html')
 
+
 def showmainpage(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
-    #存储session
+    # 存储session
     request.session['username'] = username
     request.session['password'] = password
     return redirect('/mainpage')
 
+
 def logout_(request):
-    logout(request)     #问题得到了解决，原因就是logout与函数名重合
-#    request.session.clear()
-#    request.session.flush()
+    logout(request)  # 问题得到了解决，原因就是logout与函数名重合
+    #    request.session.clear()
+    #    request.session.flush()
     return redirect('/mainpage')

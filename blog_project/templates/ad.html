@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<div class="banner">
+    <div id="slide-holder">
+        <div id="slide-runner">
+            {% for ad in ad_list %}
+                <a href="{{ ad.callback_url }}" target="_blank">
+                    <img id="slide-img-{{ ad.index }}" src="{% static ad.image_url %}" alt=""/>
+                </a>
+            {% endfor %}
+            <div id="slide-controls">
+                <p id="slide-client" class="text"><strong></strong><span></span></p>
+                <p id="slide-desc" class="text"></p>
+                <p id="slide-nav"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        if (!window.slider) {
+            var slider = {};
+        }
+        var ad_list = {{ ad_list_ | safe }};
+        slider.data = [
+            {
+                "id": "slide-img-" + ad_list[0][0], // 与slide-runner中的img标签id对应
+                "client": ad_list[0][1],
+                "desc": ad_list[0][2] //这里修改描述
+            },
+            {
+                "id": "slide-img-" + ad_list[1][0],
+                "client": ad_list[1][1],
+                "desc": ad_list[1][2]
+            },
+            {
+                "id": "slide-img-" + ad_list[2][0],
+                "client": ad_list[2][1],
+                "desc": ad_list[2][2]
+            },
+            {
+                "id": "slide-img-" + ad_list[3][0],
+                "client": ad_list[3][1],
+                "desc": ad_list[3][2]
+            }
+        ];
+
+    </script>
+</div>
+<!-- banner代码 结束 -->
